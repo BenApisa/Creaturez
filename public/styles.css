@@ -1,0 +1,331 @@
+:root {
+    --background-color: white;
+    --text-color: #000;
+    --header-background: white;
+    --header-text-color: #000;
+    --nav-link-color: #7e57c2;
+    --nav-link-hover-background: linear-gradient(135deg, #7e57c2, #2196f3);
+    --nav-link-hover-color: white;
+    --home-background: white;
+    --home-container-background: white;
+    --home-container-text-color: #000;
+    --home-container-shadow: rgba(0, 0, 0, 0.2);
+    --card-background: white;
+    --card-text-color: #000;
+    --card-shadow: rgba(0, 0, 0, 0.2);
+    --button-background: linear-gradient(135deg, #7e57c2, #2196f3);
+    --button-text-color: white;
+    --button-hover-shadow: rgba(126, 87, 194, 0.4);
+}
+
+body.dark-mode {
+    --background-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --header-background: #333;
+    --header-text-color: #fff;
+    --nav-link-color: #b39ddb; /* Light purple */
+    --nav-link-hover-background: linear-gradient(135deg, #b39ddb, #9575cd); /* Light purple gradient */
+    --nav-link-hover-color: #1a1a1a;
+    --home-background: #1a1a1a;
+    --home-container-background: #333;
+    --home-container-text-color: #e0e0e0;
+    --home-container-shadow: rgba(179, 157, 219, 0.2); /* Light purple shadow */
+    --card-background: #333;
+    --card-text-color: #e0e0e0;
+    --card-shadow: rgba(179, 157, 219, 0.2); /* Light purple shadow */
+    --button-background: linear-gradient(135deg, #b39ddb, #9575cd); /* Light purple gradient */
+    --button-text-color: #1a1a1a;
+    --button-hover-shadow: rgba(179, 157, 219, 0.4); /* Light purple shadow */
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+    padding: 0;
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+header {
+    background: var(--header-background);
+    color: var(--header-text-color);
+    padding: 20px;
+    box-shadow: 0 4px 15px var(--home-container-shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    text-align: center;
+}
+
+.logo {
+    width: 220px; /* Increase the size proportionally */
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(179, 157, 219, 0.5)); /* Add light purple glow effect */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--nav-link-color);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+    background: var(--nav-link-hover-background);
+    color: var(--nav-link-hover-color);
+}
+
+/* Home Page Styles */
+body.home {
+    background: var(--home-background);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.home-container {
+    background: var(--home-container-background);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px var(--home-container-shadow);
+}
+
+.home-container h1 {
+    color: var(--home-container-text-color);
+    margin-bottom: 20px;
+}
+
+.home-container p {
+    color: var(--home-container-text-color);
+    margin-bottom: 40px;
+}
+
+.nav-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-family: 'Press Start 2P', cursive;
+    text-decoration: none;
+    color: var(--button-text-color);
+    background: var(--button-background);
+    border-radius: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--button-hover-shadow);
+}
+
+/* Cards Page Styles */
+.cards-page {
+    background: var(--home-background);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.card-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: var(--card-background);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px var(--card-shadow);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-image img {
+    width: 100%;
+    height: auto;
+    max-height: 150px; /* Adjust the max height as needed */
+    object-fit: cover; /* Ensure the image is not stretched */
+}
+
+.card-info {
+    padding: 10px;
+}
+
+.card-info h3 {
+    color: var(--card-text-color);
+    margin: 0 0 10px 0;
+}
+
+.card-type, .card-stats {
+    color: var(--card-text-color);
+    margin: 5px 0;
+}
+
+.card-description {
+    color: var(--card-text-color);
+    font-size: 0.8em;
+    line-height: 1.4;
+}
+
+/* Card Details Page Styles */
+.card-details-page {
+    background: var(--home-background);
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.card-details-container {
+    background: var(--home-container-background);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px var(--home-container-shadow);
+    max-width: 800px;
+    width: 100%;
+}
+
+.card-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-details .card-image img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.card-details .card-info {
+    text-align: left;
+}
+
+.card-details .card-info h3 {
+    color: var(--card-text-color);
+    margin-bottom: 10px;
+}
+
+.card-details .card-info p {
+    color: var(--card-text-color);
+    margin: 5px 0;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-family: 'Press Start 2P', cursive;
+    text-decoration: none;
+    color: var(--button-text-color);
+    background: var(--button-background);
+    border-radius: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.back-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--button-hover-shadow);
+}
+
+/* Mode Toggle Button Styles */
+.mode-toggle {
+    background: var(--button-background);
+    color: var(--button-text-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8em;
+    transition: all 0.3s ease;
+}
+
+.mode-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--button-hover-shadow);
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: var(--home-container-background);
+    margin: 5% auto; /* 5% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; /* Could be more or less, depending on screen size */
+    max-width: 800px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px var(--home-container-shadow);
+}
+
+.close-button {
+    color: var(--text-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.card-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-details .card-image img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.card-details .card-info {
+    text-align: left;
+}
+
+.card-details .card-info h3 {
+    color: var(--card-text-color);
+    margin-bottom: 10px;
+}
+
+.card-details .card-info p {
+    color: var(--card-text-color);
+    margin: 5px 0;
+}
