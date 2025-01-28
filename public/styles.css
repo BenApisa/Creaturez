@@ -18,6 +18,15 @@
     --button-hover-shadow: rgba(126, 87, 194, 0.4);
 }
 
+body {
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+    padding: 0;
+    background: var(--background-color) url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--text-color);
+}
+
 body.dark-mode {
     --background-color: #1a1a1a;
     --text-color: #e0e0e0;
@@ -36,15 +45,31 @@ body.dark-mode {
     --button-background: linear-gradient(135deg, #b39ddb, #9575cd); /* Light purple gradient */
     --button-text-color: #1a1a1a;
     --button-hover-shadow: rgba(179, 157, 219, 0.4); /* Light purple shadow */
+    background: var(--background-color) url('background-dark.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
-body {
-    font-family: 'Press Start 2P', cursive;
-    margin: 0;
-    padding: 0;
-    background: var(--background-color);
-    color: var(--text-color);
+/* Ensure the hero section has a transparent background */
+.hero {
+    background: transparent;
 }
+
+/* Ensure the home container has a transparent background */
+.home-container {
+    background: transparent;
+}
+
+/* Ensure the card gallery has a transparent background */
+.card-gallery {
+    background: transparent;
+}
+
+/* Ensure the footer has a transparent background */
+footer {
+    background: transparent;
+}
+
+/* ...existing code... */
 
 header {
     background: var(--header-background);
