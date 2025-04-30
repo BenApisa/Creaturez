@@ -68,6 +68,15 @@ header {
     box-sizing: border-box;
     z-index: 1000;
     overflow: visible;
+    /* Add decorative bottom border with gradient */
+    border-bottom: 2px solid transparent;
+    background-image: 
+        linear-gradient(var(--header-background), var(--header-background)), 
+        linear-gradient(to right, #7e57c2, #2196f3);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    /* Add subtle shadow for depth */
+    box-shadow: 0 2px 8px rgba(126, 87, 194, 0.15);
 }
 
 header .logo-container {
@@ -127,6 +136,15 @@ nav {
     top: 45px;
     padding: 5px 0;
     z-index: 999;
+    /* Add matching bottom border */
+    border-bottom: 2px solid transparent;
+    background-image: 
+        linear-gradient(var(--header-background), var(--header-background)), 
+        linear-gradient(to right, rgba(126, 87, 194, 0.3), rgba(33, 150, 243, 0.3));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    /* Add subtle shadow for depth */
+    box-shadow: 0 2px 8px rgba(126, 87, 194, 0.1);
 }
 
 nav ul {
@@ -217,7 +235,6 @@ a {
     font-family: 'Faculty Glyphic', cursive; /* Apply the desired font */
 }
 
-/* ...existing code... */
 /* Home Page Styles */
 body.home {
     background: var(--home-background) url('/assets/images/background-light.jpg') no-repeat center center fixed;
