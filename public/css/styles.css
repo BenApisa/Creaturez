@@ -194,6 +194,19 @@ nav ul li a.active {
     margin-bottom: 40px;
 }
 
+/* Cards Page Styles */
+.cards-page {
+    background: var(--background-color) url('/assets/images/background-light.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.cards-page.dark-mode {
+    background: var(--background-color) url('/assets/images/background-dark.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
 .card-gallery {
     padding-top: 120px; /* Add space for header and nav */
     display: grid;
@@ -201,6 +214,9 @@ nav ul li a.active {
     gap: 20px;
     padding-left: 20px;
     padding-right: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 footer {
