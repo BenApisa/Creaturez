@@ -64,7 +64,7 @@ header {
     align-items: center;
     position: fixed;
     top: 0;
-    height: 60px;  /* Slightly increased for larger logo */
+    height: 45px;  /* Reduced header height */
     box-sizing: border-box;
     z-index: 1000;
 }
@@ -73,13 +73,14 @@ header .logo-container {
     height: 100%;
     display: flex;
     align-items: center;
-    padding: 5px 0;
+    padding: 2px 0;  /* Reduced padding */
 }
 
 header .logo {
-    height: 55px;  /* Increased logo size */
+    height: 70px;  /* Increased logo size */
     width: auto;
-    object-fit: contain;
+    object-fit: cover;  /* Changed to cover to ensure full logo visibility */
+    margin-top: -12px;  /* Offset to accommodate larger logo in smaller header */
 }
 
 button.mode-toggle {
@@ -91,7 +92,7 @@ button.mode-toggle {
     width: 35px;
     height: 35px;
     position: fixed;
-    top: 15px;  /* Adjusted to vertically center in new header height */
+    top: 7px;  /* Adjusted to vertically center in new header height */
     right: 12px;
     display: flex;
     justify-content: center;
@@ -116,7 +117,7 @@ nav {
     display: flex;
     justify-content: center;
     position: fixed;
-    top: 60px;  /* Adjusted to match new header height */
+    top: 45px;  /* Adjusted to match new header height */
     padding: 5px 0;
     z-index: 999;
 }
