@@ -1,8 +1,8 @@
 :root {
     --background-color: white;
     --text-color: #000;
-    --header-background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
-    --header-text-color: #000;
+    --header-background: linear-gradient(to bottom, #ffffff, #f5f5f5);
+    --header-text-color: #333;
     --nav-link-color: #7e57c2;
     --nav-link-hover-background: linear-gradient(135deg, #7e57c2, #2196f3);
     --nav-link-hover-color: white;
@@ -16,7 +16,7 @@
     --button-background: linear-gradient(135deg, #7e57c2, #2196f3);
     --button-text-color: white;
     --button-hover-shadow: rgba(126, 87, 194, 0.4);
-    --nav-background: linear-gradient(to bottom, #2d2d2d, #333);
+    --nav-background: linear-gradient(to bottom, #f5f5f5, #eeeeee);
     --border-accent: #7e57c2;
 }
 
@@ -153,7 +153,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: var(--header-text-color);
     text-decoration: none;
     font-size: 1.2em;
     text-transform: uppercase;
