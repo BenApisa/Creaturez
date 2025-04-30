@@ -1,19 +1,25 @@
-// filepath: /c:/Users/bapis/.vscode/Creaturez-1/server.js
 const express = require('express');
+const path = require('path');
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3002;
 
 // Serve static files from the "public" directory
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
+// Serve specific HTML files for specific routes
+app.get('/creatures.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/pages/creatures.html'));
 });
 
-app.listen(port, (err) => {
-  if (err) {
-    console.error('Failed to start server:', err);
-  } else {
+app.get('/index.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/pages/index.html'));
+});
+
+// Fallback to index.html for any other routes (for single-page applications)
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/pages/index.html'));
+});
+
+app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
-  }
 });

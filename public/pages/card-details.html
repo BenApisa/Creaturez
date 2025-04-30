@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Details</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/cards.css">
+    <link rel="stylesheet" href="/css/animations.css">
+</head>
+<body>
+    <div class="card-container" id="cardDetails">
+        <!-- Cards will be loaded here dynamically -->
+    </div>
+
+    <script src="/js/cardlogic.js"></script>
+    <script>
+        const cardManager = new CardManager();
+        
+        async function initialize() {
+            await cardManager.loadCards();
+            const urlParams = new URLSearchParams(window.location.search);
+            const cardId = urlParams.get('id');
+            
+            if (cardId) {
+                const card = cardManager.displayCard(cardId);
+                if (card) {
+                    displayCardDetails(card);
+                }
+            }
+        }
+
+        function displayCardDetails(card) {
+            const container = document.getElementById('cardDetails');
+            container.innerHTML = `
+                <div class="card">
+                    <div class="card-image">
+                        <img src="${card.imageUrl}" alt="${card.name}">
+                    </div>
+                    <div class="card-info">
+                        <div class="card-name">${card.name}</div>
+                        <div class="card-stats">
+                            <span>Power: ${card.power}</span>
+                            <span>Defense: ${card.defense}</span>
+                        </div>
+                        <div class="card-description">${card.description}</div>
+                        <div class="card-abilities">
+                            ${card.abilities.join(', ')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        initialize();
+    </script>
+</body>
+</html>

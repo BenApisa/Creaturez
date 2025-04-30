@@ -1,0 +1,30 @@
+@keyframes cardEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: cardEntrance 0.5s ease-out;
+}
+
+@keyframes cardGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+}
+
+.card:hover {
+    animation: cardGlow 2s infinite;
+}

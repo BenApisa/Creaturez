@@ -1,0 +1,484 @@
+:root {
+    --background-color: white;
+    --text-color: #000;
+    --header-background: white;
+    --header-text-color: #000;
+    --nav-link-color: #7e57c2;
+    --nav-link-hover-background: linear-gradient(135deg, #7e57c2, #2196f3);
+    --nav-link-hover-color: white;
+    --home-background: white;
+    --home-container-background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    --home-container-text-color: #000;
+    --home-container-shadow: rgba(0, 0, 0, 0.2);
+    --card-background: white;
+    --card-text-color: #000;
+    --card-shadow: rgba(0, 0, 0, 0.2);
+    --button-background: linear-gradient(135deg, #7e57c2, #2196f3);
+    --button-text-color: white;
+    --button-hover-shadow: rgba(126, 87, 194, 0.4);
+}
+
+body {
+    font-family: 'Faculty Glyphic', cursive;
+    margin: 0;
+    padding: 0;
+    background: var(--background-color) url('../assets/images/background-light.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+body.dark-mode {
+    --background-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --header-background: #333;
+    --header-text-color: #fff;
+    --nav-link-color: #b39ddb; /* Light purple */
+    --nav-link-hover-background: linear-gradient(135deg, #b39ddb, #9575cd); /* Light purple gradient */
+    --nav-link-hover-color: #1a1a1a;
+    --home-background: #1a1a1a;
+    --home-container-background: rgba(51, 51, 51, 0.8); /* Semi-transparent background */
+    --home-container-text-color: #e0e0e0;
+    --home-container-shadow: rgba(179, 157, 219, 0.2); /* Light purple shadow */
+    --card-background: #333;
+    --card-text-color: #e0e0e0;
+    --card-shadow: rgba(179, 157, 219, 0.2); /* Light purple shadow */
+    --button-background: linear-gradient(135deg, #b39ddb, #9575cd); /* Light purple gradient */
+    --button-text-color: #1a1a1a;
+    --button-hover-shadow: rgba(179, 157, 219, 0.4); /* Light purple shadow */
+    background: var(--background-color) url('../assets/images/background-dark.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+header {
+    background: var(--header-background);
+    color: var(--header-text-color);
+    padding: 5px 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    height: 60px;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+header .logo-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+header .logo {
+    height: 90px;
+    width: auto;
+    object-fit: contain;
+}
+
+button.mode-toggle {
+    background: var(--button-background);
+    color: var(--button-text-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+button.mode-toggle::before {
+    content: "⏻";
+    font-family: "Segoe UI Symbol", system-ui;
+    line-height: 1;
+}
+
+button.mode-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px var(--button-hover-shadow);
+}
+
+nav {
+    background: var(--header-background);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 60px;
+    padding: 10px 0;
+    z-index: 999;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Center the nav items */
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: var(--nav-link-color);
+    text-decoration: none;
+    font-size: 1.5em; /* Increased size */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background: var(--nav-link-hover-background);
+    color: var(--nav-link-hover-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px var(--button-hover-shadow); /* Add glow effect */
+}
+
+button.mode-toggle {
+    background: var(--button-background);
+    color: var(--button-text-color);
+    border: none;
+    padding: 0; /* Remove padding */
+    cursor: pointer;
+    border-radius: 50%; /* Make it circular */
+    position: fixed;
+    top: 10px; /* Adjust position */
+    right: 10px; /* Adjust position */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em; /* Adjust font size */
+}
+
+button.mode-toggle::before {
+    content: '\u23FB'; /* Unicode for power symbol */
+}
+
+button.mode-toggle:hover {
+    box-shadow: 0 0 10px var(--button-hover-shadow); /* Add glow effect */
+}
+
+.home-container {
+    background: var(--home-container-background);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px var(--home-container-shadow);
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+}
+
+.home-container h1 {
+    color: var(--home-container-text-color);
+    margin-bottom: 20px;
+}
+
+.home-container p {
+    color: var(--home-container-text-color);
+    margin-bottom: 40px;
+}
+
+.card-gallery {
+    background: transparent;
+}
+
+footer {
+    background: transparent;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Home Page Styles */
+body.home {
+    background: var(--home-background) url('/assets/images/background-light.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+body.home.dark-mode {
+    background: var(--home-background) url('/assets/images/background-dark.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+nav a:hover, nav a.active {
+    background: var(--nav-link-hover-background);
+    color: var(--nav-link-hover-color);
+}
+
+/* Global link styles */
+a {
+    font-family: 'Faculty Glyphic', cursive; /* Apply the desired font */
+}
+
+/* ...existing code... */
+/* Home Page Styles */
+body.home {
+    background: var(--home-background) url('/assets/images/background-light.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+body.home.dark-mode {
+    background: var(--home-background) url('/assets/images/background-dark.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.home-container {
+    background: var(--home-container-background);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px var(--home-container-shadow);
+}
+
+.home-container h1 {
+    color: var(--home-container-text-color);
+    margin-bottom: 20px;
+}
+
+.home-container p {
+    color: var(--home-container-text-color);
+    margin-bottom: 40px;
+}
+
+.nav-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-family: 'Press Start 2P', cursive;
+    text-decoration: none;
+    color: var(--button-text-color);
+    background: var(--button-background);
+    border-radius: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--button-hover-shadow);
+}
+
+/* Cards Page Styles */
+.cards-page {
+    background: var(--home-background);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.card-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: var(--card-background);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px var(--card-shadow);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-image img {
+    width: 100%;
+    height: auto;
+    max-height: 150px; /* Adjust the max height as needed */
+    object-fit: cover; /* Ensure the image is not stretched */
+}
+
+.card-info {
+    padding: 10px;
+}
+
+.card-info h3 {
+    color: var(--card-text-color);
+    margin: 0 0 10px 0;
+}
+
+.card-type, .card-stats {
+    color: var(--card-text-color);
+    margin: 5px 0;
+}
+
+.card-description {
+    color: var(--card-text-color);
+    font-size: 0.8em;
+    line-height: 1.4;
+}
+
+/* Card Details Page Styles */
+.card-details-page {
+    background: var(--home-background);
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.card-details-container {
+    background: var(--home-container-background);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px var(--home-container-shadow);
+    max-width: 800px;
+    width: 100%;
+}
+
+.card-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-details .card-image img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.card-details .card-info {
+    text-align: left;
+}
+
+.card-details .card-info h3 {
+    color: var(--card-text-color);
+    margin-bottom: 10px;
+}
+
+.card-details .card-info p {
+    color: var(--card-text-color);
+    margin: 5px 0;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-family: 'Press Start 2P', cursive;
+    text-decoration: none;
+    color: var(--button-text-color);
+    background: var(--button-background);
+    border-radius: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.back-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--button-hover-shadow);
+}
+
+/* Mode Toggle Button Styles */
+.mode-toggle {
+    background: var(--button-background);
+    color: var(--button-text-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8em;
+    transition: all 0.3s ease;
+}
+
+.mode-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--button-hover-shadow);
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: var(--home-container-background);
+    margin: 5% auto; /* 5% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; /* Could be more or less, depending on screen size */
+    max-width: 800px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px var(--home-container-shadow);
+}
+
+.close-button {
+    color: var(--text-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.card-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-details .card-image img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.card-details .card-info {
+    text-align: left;
+}
+
+.card-details .card-info h3 {
+    color: var(--card-text-color);
+    margin-bottom: 10px;
+}
+
+.card-details .card-info p {
+    color: var(--card-text-color);
+    margin: 5px 0;
+}

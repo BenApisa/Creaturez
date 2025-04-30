@@ -1,0 +1,15 @@
+{
+    "cards": [
+      {
+        "id": "creature_001",
+        "name": "Dragon Warrior",
+        "type": "Creature",
+        "power": 5,
+        "defense": 4,
+        "rarity": "Rare",
+        "imageUrl": "/assets/images/cards/card1.png",
+        "abilities": ["Flying"],
+        "description": "A powerful dragon warrior from the ancient realm"
+      }
+    ]
+  }
