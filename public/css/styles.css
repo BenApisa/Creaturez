@@ -85,6 +85,7 @@ header .logo {
     max-height: none; /* Remove max-height restriction */
     object-fit: contain;
     margin-top: -52px; /* Adjust this value to position the logo correctly */
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.3)); /* Add shadow around logo */
 }
 
 button.mode-toggle {
