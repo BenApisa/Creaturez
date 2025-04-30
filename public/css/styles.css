@@ -200,11 +200,8 @@ nav ul li a.active {
     background-size: cover;
     min-height: 100vh;
     padding: 20px;
-}
-
-.cards-page.dark-mode {
-    background: var(--background-color) url('/assets/images/background-dark.jpg') no-repeat center center fixed;
-    background-size: cover;
+    display: flex;
+    flex-direction: column;
 }
 
 .card-gallery {
@@ -217,6 +214,12 @@ nav ul li a.active {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+/* Update dark mode for cards page */
+body.cards-page.dark-mode {
+    background: var(--background-color) url('/assets/images/background-dark.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
 footer {
@@ -305,12 +308,6 @@ body.home.dark-mode {
 }
 
 /* Cards Page Styles */
-.cards-page {
-    background: var(--home-background);
-    min-height: 100vh;
-    padding: 20px;
-}
-
 .card {
     background: var(--card-background);
     border-radius: 15px;
