@@ -7,15 +7,15 @@ const port = process.env.PORT || 3002;
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Serve specific HTML files for specific routes
-app.get('/creatures.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/pages/creatures.html'));
-});
-
-app.get('/index.html', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/pages/index.html'));
 });
 
-// Fallback to index.html for any other routes (for single-page applications)
+app.get('/creatures', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/pages/creatures.html'));
+});
+
+// Handle all other routes
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/pages/index.html'));
 });
