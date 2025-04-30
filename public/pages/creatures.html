@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creaturez TCG - Card Collection</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body class="cards-page light-mode">
     <header>
         <div class="logo-container">
-            <img src="../assets/images/logo.png" alt="Creaturez TCG Logo" class="logo">
+            <img src="/assets/images/logo.png" alt="Creaturez TCG Logo" class="logo">
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="creatures.html" class="active">Creaturez</a></li>
-                <li><a href="#">Decks</a></li>
-                <li><a href="#">Battle</a></li>
-            </ul>
-        </nav>
-        <button id="mode-toggle" class="mode-toggle">Dark Mode</button>
+        <button id="mode-toggle" class="mode-toggle" aria-label="Toggle dark mode"></button>
     </header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/creatures" class="active">Creaturez</a></li>
+            <li><a href="#">Decks</a></li>
+            <li><a href="#">Battle</a></li>
+        </ul>
+    </nav>
     <main class="card-gallery">
         <div class="card" data-card="card1">
             <div class="card-image">
@@ -36,6 +36,6 @@
         </div>
         <!-- Add more cards as needed -->
     </main>
-    <script src="../js/scripts.js"></script>
+    <script src="/js/scripts.js"></script>
 </body>
 </html>
