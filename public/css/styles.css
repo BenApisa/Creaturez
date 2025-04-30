@@ -57,14 +57,14 @@ body.dark-mode {
 header {
     background: var(--header-background);
     color: var(--header-text-color);
-    padding: 2px 20px;  /* Reduced padding */
+    padding: 2px 20px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: fixed;
     top: 0;
-    height: 45px;  /* Reduced height */
+    height: 60px;  /* Slightly increased for larger logo */
     box-sizing: border-box;
     z-index: 1000;
 }
@@ -73,10 +73,11 @@ header .logo-container {
     height: 100%;
     display: flex;
     align-items: center;
+    padding: 5px 0;
 }
 
 header .logo {
-    height: 40px;  /* Reduced logo size */
+    height: 55px;  /* Increased logo size */
     width: auto;
     object-fit: contain;
 }
@@ -90,7 +91,7 @@ button.mode-toggle {
     width: 35px;
     height: 35px;
     position: fixed;
-    top: 7px;  /* Adjusted position to align with smaller header */
+    top: 15px;  /* Adjusted to vertically center in new header height */
     right: 12px;
     display: flex;
     justify-content: center;
@@ -115,8 +116,8 @@ nav {
     display: flex;
     justify-content: center;
     position: fixed;
-    top: 45px;  /* Adjusted to match new header height */
-    padding: 5px 0;  /* Reduced padding */
+    top: 60px;  /* Adjusted to match new header height */
+    padding: 5px 0;
     z-index: 999;
 }
 
