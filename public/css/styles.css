@@ -17,6 +17,7 @@
     --button-text-color: white;
     --button-hover-shadow: rgba(126, 87, 194, 0.4);
     --nav-background: linear-gradient(to bottom, #2d2d2d, #333);
+    --border-accent: #7e57c2;
 }
 
 body {
@@ -36,7 +37,7 @@ body {
 body.dark-mode {
     --background-color: #1a1a1a;
     --text-color: #e0e0e0;
-    --header-background: #333;
+    --header-background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
     --header-text-color: #fff;
     --nav-link-color: #b39ddb; /* Light purple */
     --nav-link-hover-background: linear-gradient(135deg, #b39ddb, #9575cd); /* Light purple gradient */
@@ -51,12 +52,14 @@ body.dark-mode {
     --button-background: linear-gradient(135deg, #b39ddb, #9575cd); /* Light purple gradient */
     --button-text-color: #1a1a1a;
     --button-hover-shadow: rgba(179, 157, 219, 0.4); /* Light purple shadow */
+    --nav-background: linear-gradient(to bottom, #2d2d2d, #333);
+    --border-accent: #b39ddb;
     background: var(--background-color) url('/assets/images/background-dark.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
 header {
-    background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
+    background: var(--header-background);
     color: var(--header-text-color);
     padding: 2px 20px;
     width: 100%;
@@ -69,7 +72,7 @@ header {
     box-sizing: border-box;
     z-index: 1000;
     overflow: visible;
-    border-bottom: 2px solid #7e57c2;
+    border-bottom: 2px solid var(--border-accent);
     box-shadow: 
         0 2px 10px rgba(126, 87, 194, 0.3),
         0 0 20px rgba(33, 150, 243, 0.1);
@@ -124,7 +127,7 @@ button.mode-toggle:hover {
 }
 
 nav {
-    background: linear-gradient(to bottom, #2d2d2d, #333);
+    background: var(--nav-background);
     width: 100%;
     display: flex;
     justify-content: center;
@@ -134,6 +137,7 @@ nav {
     z-index: 999;
     border-bottom: 1px solid rgba(126, 87, 194, 0.3);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 0;
 }
 
 nav ul {
