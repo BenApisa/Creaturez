@@ -64,23 +64,27 @@ header {
     align-items: center;
     position: fixed;
     top: 0;
-    height: 45px;  /* Reduced header height */
+    height: 45px;
     box-sizing: border-box;
     z-index: 1000;
+    overflow: visible; /* Allow logo to overflow */
 }
 
 header .logo-container {
     height: 100%;
     display: flex;
     align-items: center;
-    padding: 2px 0;  /* Reduced padding */
+    padding: 2px 0;
+    position: relative; /* For logo positioning */
 }
 
 header .logo {
-    height: 70px;  /* Increased logo size */
+    height: 90px; /* Increased logo size */
     width: auto;
-    object-fit: cover;  /* Changed to cover to ensure full logo visibility */
-    margin-top: -12px;  /* Offset to accommodate larger logo in smaller header */
+    position: absolute; /* Position the logo */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for perfect centering */
+    object-fit: contain;
 }
 
 button.mode-toggle {
