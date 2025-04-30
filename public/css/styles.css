@@ -61,7 +61,7 @@ header {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start; /* Changed from center */
     position: fixed;
     top: 0;
     height: 45px;
@@ -72,18 +72,19 @@ header {
 
 header .logo-container {
     position: relative;
-    width: 200px; /* Set a fixed width */
-    height: 120px; /* Increased container height */
+    width: 300px; /* Increased width */
+    height: 150px; /* Increased height */
     display: flex;
-    align-items: center;
-    margin-top: 35px; /* Push the container down */
+    align-items: flex-start; /* Changed from center */
+    margin-top: 0; /* Removed margin-top */
 }
 
 header .logo {
-    width: 30%;
+    width: 100%; /* Use full container width */
     height: auto;
-    max-height: 45px; /* Increased max height */
-    object-fit: none;
+    max-height: none; /* Remove max-height restriction */
+    object-fit: contain;
+    margin-top: -52px; /* Adjust this value to position the logo correctly */
 }
 
 button.mode-toggle {
