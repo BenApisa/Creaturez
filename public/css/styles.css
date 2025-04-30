@@ -190,17 +190,42 @@ nav ul li a.active {
 
 .main-content {
     flex: 1; /* Take up available space */
-    text-align: center;
+    text-align: left; /* Changed from center */
+    padding-left: 60px; /* Add left padding */
 }
 
 .home-container h1 {
     color: var(--home-container-text-color);
     margin-bottom: 20px;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #7e57c2, #2196f3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 
+        2px 2px 4px rgba(126, 87, 194, 0.3),
+        -2px -2px 4px rgba(33, 150, 243, 0.3);
+    padding: 10px 0;
 }
 
 .home-container p {
     color: var(--home-container-text-color);
     margin-bottom: 40px;
+    font-size: 1.2em;
+    line-height: 1.6;
+    text-shadow: 0 0 15px rgba(126, 87, 194, 0.2);
+    position: relative;
+    padding: 15px 0;
+}
+
+.home-container p::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(to right, #7e57c2, #2196f3, transparent);
 }
 
 /* Cards Page Styles */
