@@ -1,7 +1,7 @@
 :root {
     --background-color: white;
     --text-color: #000;
-    --header-background: white;
+    --header-background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
     --header-text-color: #000;
     --nav-link-color: #7e57c2;
     --nav-link-hover-background: linear-gradient(135deg, #7e57c2, #2196f3);
@@ -16,6 +16,7 @@
     --button-background: linear-gradient(135deg, #7e57c2, #2196f3);
     --button-text-color: white;
     --button-hover-shadow: rgba(126, 87, 194, 0.4);
+    --nav-background: linear-gradient(to bottom, #2d2d2d, #333);
 }
 
 body {
@@ -55,28 +56,23 @@ body.dark-mode {
 }
 
 header {
-    background: var(--header-background);
+    background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
     color: var(--header-text-color);
     padding: 2px 20px;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; /* Changed from center */
+    align-items: flex-start;
     position: fixed;
     top: 0;
     height: 45px;
     box-sizing: border-box;
     z-index: 1000;
     overflow: visible;
-    /* Add decorative bottom border with gradient */
-    border-bottom: 2px solid transparent;
-    background-image: 
-        linear-gradient(var(--header-background), var(--header-background)), 
-        linear-gradient(to right, #7e57c2, #2196f3);
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-    /* Add subtle shadow for depth */
-    box-shadow: 0 2px 8px rgba(126, 87, 194, 0.15);
+    border-bottom: 2px solid #7e57c2;
+    box-shadow: 
+        0 2px 10px rgba(126, 87, 194, 0.3),
+        0 0 20px rgba(33, 150, 243, 0.1);
 }
 
 header .logo-container {
@@ -128,23 +124,16 @@ button.mode-toggle:hover {
 }
 
 nav {
-    background: var(--header-background);
+    background: linear-gradient(to bottom, #2d2d2d, #333);
     width: 100%;
     display: flex;
     justify-content: center;
     position: fixed;
     top: 45px;
-    padding: 5px 0;
+    padding: 8px 0;
     z-index: 999;
-    /* Add matching bottom border */
-    border-bottom: 2px solid transparent;
-    background-image: 
-        linear-gradient(var(--header-background), var(--header-background)), 
-        linear-gradient(to right, rgba(126, 87, 194, 0.3), rgba(33, 150, 243, 0.3));
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-    /* Add subtle shadow for depth */
-    box-shadow: 0 2px 8px rgba(126, 87, 194, 0.1);
+    border-bottom: 1px solid rgba(126, 87, 194, 0.3);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 nav ul {
@@ -160,19 +149,25 @@ nav ul li {
 }
 
 nav ul li a {
-    color: var(--nav-link-color);
+    color: #fff;
     text-decoration: none;
-    font-size: 1.5em; /* Increased size */
-    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    font-size: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 15px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 10px rgba(126, 87, 194, 0.5);
 }
 
 nav ul li a:hover,
 nav ul li a.active {
-    background: var(--nav-link-hover-background);
-    color: var(--nav-link-hover-color);
-    padding: 5px 10px;
-    border-radius: 5px;
-    box-shadow: 0 4px 15px var(--button-hover-shadow); /* Add glow effect */
+    background: linear-gradient(135deg, #7e57c2, #2196f3);
+    color: #fff;
+    box-shadow: 
+        0 0 15px rgba(126, 87, 194, 0.4),
+        0 0 30px rgba(33, 150, 243, 0.2);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .home-container {
