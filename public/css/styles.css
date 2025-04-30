@@ -67,23 +67,22 @@ header {
     height: 45px;
     box-sizing: border-box;
     z-index: 1000;
-    overflow: visible; /* Allow logo to overflow */
+    overflow: visible;
 }
 
 header .logo-container {
-    height: 100%;
+    position: relative;
+    width: 200px; /* Set a fixed width */
+    height: 120px; /* Increased container height */
     display: flex;
     align-items: center;
-    padding: 2px 0;
-    position: relative; /* For logo positioning */
+    margin-top: 35px; /* Push the container down */
 }
 
 header .logo {
-    height: 90px; /* Increased logo size */
-    width: auto;
-    position: absolute; /* Position the logo */
-    top: 50%; /* Center vertically */
-    transform: translateY(-50%); /* Adjust for perfect centering */
+    width: 100%;
+    height: auto;
+    max-height: 120px; /* Increased max height */
     object-fit: contain;
 }
 
@@ -121,7 +120,7 @@ nav {
     display: flex;
     justify-content: center;
     position: fixed;
-    top: 45px;  /* Adjusted to match new header height */
+    top: 45px;
     padding: 5px 0;
     z-index: 999;
 }
