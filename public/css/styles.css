@@ -80,7 +80,7 @@ header .logo-container {
 }
 
 header .logo {
-    width: 100%;
+    width: 30%;
     height: auto;
     max-height: 45px; /* Increased max height */
     object-fit: none;
