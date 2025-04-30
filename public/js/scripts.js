@@ -50,3 +50,51 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Element with ID "mode-toggle" not found.');
     }
 });
+
+// Card Carousel functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const carouselTrack = document.querySelector('.carousel-track');
+    const prevButton = document.querySelector('.carousel-button.prev');
+    const nextButton = document.querySelector('.carousel-button.next');
+    
+    // Updated card data to match existing files
+    const cards = [
+        { image: '/assets/images/cards/card1.png', name: 'Creature 1' },
+        { image: '/assets/images/cards/card2.jpg', name: 'Creature 2' }
+    ];
+    
+    // Add cards to carousel
+    cards.forEach(card => {
+        const cardElement = document.createElement('div');
+        cardElement.className = 'carousel-card';
+        cardElement.innerHTML = `
+            <img src="${card.image}" alt="${card.name}">
+            <h3>${card.name}</h3>
+        `;
+        carouselTrack.appendChild(cardElement);
+    });
+    
+    let currentIndex = 0;
+    
+    function updateCarousel() {
+        const offset = currentIndex * -100;
+        carouselTrack.style.transform = `translateX(${offset}%)`;
+    }
+    
+    // Adjusted interval for better viewing with fewer cards
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateCarousel();
+    }, 4000); // Increased to 4 seconds since there are only 2 cards
+    
+    // Manual navigation
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateCarousel();
+    });
+    
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        updateCarousel();
+    });
+});
