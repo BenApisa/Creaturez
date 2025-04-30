@@ -180,8 +180,17 @@ nav ul li a.active {
     border-radius: 15px;
     box-shadow: 0 4px 15px var(--home-container-shadow);
     text-align: center;
-    max-width: 800px;
+    max-width: 1200px; /* Increased to accommodate side-by-side layout */
     margin: auto;
+    display: flex; /* Added flex display */
+    justify-content: space-between; /* Space between content and carousel */
+    align-items: center;
+    gap: 40px; /* Space between main content and carousel */
+}
+
+.main-content {
+    flex: 1; /* Take up available space */
+    text-align: center;
 }
 
 .home-container h1 {
@@ -272,23 +281,6 @@ body.home {
 body.home.dark-mode {
     background: var(--home-background) url('/assets/images/background-dark.jpg') no-repeat center center fixed;
     background-size: cover;
-}
-
-.home-container {
-    background: var(--home-container-background);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px var(--home-container-shadow);
-}
-
-.home-container h1 {
-    color: var(--home-container-text-color);
-    margin-bottom: 20px;
-}
-
-.home-container p {
-    color: var(--home-container-text-color);
-    margin-bottom: 40px;
 }
 
 .nav-button {
@@ -496,9 +488,8 @@ body.home.dark-mode {
 
 /* Card Carousel Styles */
 .card-carousel {
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto 30px;
+    width: 300px; /* Fixed width */
+    margin: 0;
     position: relative;
     display: flex;
     align-items: center;
