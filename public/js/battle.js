@@ -73,17 +73,25 @@ document.addEventListener('DOMContentLoaded', () => {
         displayBattleCard(selectedCard, 'player');
         displayBattleCard(opponentCard, 'opponent');
 
+        // Coin flip animation
+        const coin = document.querySelector('.coin');
         const coinFlip = Math.random() < 0.5;
-        currentTurn = coinFlip ? 'player' : 'opponent';
-        document.getElementById('coin-flip').textContent = 
-            `${coinFlip ? 'You' : 'Opponent'} go first!`;
-
-        gameActive = true;
-        updateBattleLog(`Battle started! ${coinFlip ? 'You' : 'Opponent'} won the coin flip!`);
-
-        if (currentTurn === 'opponent') {
-            setTimeout(opponentTurn, 1500);
-        }
+        
+        coin.classList.add('flipping');
+        
+        setTimeout(() => {
+            coin.classList.remove('flipping');
+            currentTurn = coinFlip ? 'player' : 'opponent';
+            document.getElementById('coin-flip').textContent = 
+                `${coinFlip ? 'You' : 'Opponent'} go first!`;
+            
+            gameActive = true;
+            updateBattleLog(`Battle started! ${coinFlip ? 'You' : 'Opponent'} won the coin flip!`);
+            
+            if (currentTurn === 'opponent') {
+                setTimeout(opponentTurn, 1500);
+            }
+        }, 2000);
     }
 
     // Battle mechanics
@@ -136,11 +144,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="card-info">
                     <h3>${card.name}</h3>
-                    <p>ATK: ${card.attack} / DEF: ${card.defense}</p>
+                    <div class="stats-display">
+                        <p>ATK: ${card.attack}</p>
+                        <p>DEF: ${card.defense}</p>
+                    </div>
                 </div>
             </div>
         `;
-        document.querySelector(`.${side}-stats`).textContent = `HP: ${card.health}`;
+        document.querySelector(`.${side}-stats`).innerHTML = 
+            `<div class="stats-display">HP: ${card.health}</div>`;
     }
 
     function updateBattleLog(message) {
