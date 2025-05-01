@@ -670,32 +670,80 @@ body.home.dark-mode {
 }
 
 #battle-log {
-    background: rgba(255, 255, 255, 0.15);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
     padding: 20px;
-    border-radius: 10px;
-    min-height: 200px;
-    max-height: 250px;
+    border-radius: 15px;
+    min-height: 250px;
+    max-height: 300px;
     width: 100%;
     font-family: 'Press Start 2P', cursive;
-    font-size: 0.8em;
-    line-height: 1.5;
+    font-size: 1em;
+    line-height: 1.6;
     color: #fff;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-    border: 1px solid rgba(126, 87, 194, 0.3);
-    margin-top: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(126, 87, 194, 0.5);
+    box-shadow: 0 0 25px rgba(126, 87, 194, 0.3),
+                inset 0 0 20px rgba(126, 87, 194, 0.2);
     overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+#battle-log div {
+    padding: 8px 10px;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+#battle-log div:last-child {
+    border-left: 4px solid #7e57c2;
+    background: rgba(126, 87, 194, 0.2);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scrollbar styling for battle log */
+#battle-log::-webkit-scrollbar {
+    width: 8px;
+}
+
+#battle-log::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+
+#battle-log::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #7e57c2, #2196f3);
+    border-radius: 4px;
+}
+
+#battle-log::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #9575cd, #64b5f6);
 }
 
 .stats-display {
-    background: rgba(255, 255, 255, 0.15);
-    padding: 10px 20px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(126, 87, 194, 0.3));
+    padding: 15px 25px;
     border-radius: 10px;
     margin-top: 15px;
     font-family: 'Press Start 2P', cursive;
-    font-size: 0.9em;
+    font-size: 1.2em;
     color: #fff;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 10px rgba(126, 87, 194, 0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8),
+                 0 0 10px rgba(126, 87, 194, 0.5);
+    box-shadow: 0 0 20px rgba(126, 87, 194, 0.4),
+                inset 0 0 15px rgba(126, 87, 194, 0.3);
+    border: 2px solid rgba(126, 87, 194, 0.5);
 }
 
 #coin-flip {
