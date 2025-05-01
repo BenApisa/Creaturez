@@ -20,13 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
+    const playerCardsDiv = document.querySelector('.player-cards');
     let selectedCard = null;
     let opponentCard = null;
     let currentTurn = null;
     let gameActive = false;
 
     // Initialize card selection
-    const playerCardsDiv = document.querySelector('.player-cards');
     cards.forEach(card => {
         const cardElement = createCardElement(card);
         playerCardsDiv.appendChild(cardElement);
@@ -70,11 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.card-selection').style.display = 'none';
         document.querySelector('.battle-arena').style.display = 'grid';
 
-        // Display cards
         displayBattleCard(selectedCard, 'player');
         displayBattleCard(opponentCard, 'opponent');
 
-        // Coin flip
         const coinFlip = Math.random() < 0.5;
         currentTurn = coinFlip ? 'player' : 'opponent';
         document.getElementById('coin-flip').textContent = 
@@ -129,21 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
             `HP: ${Math.max(0, opponentCard.health)}`;
     }
 
-    function checkGameEnd() {
-        if (selectedCard.health <= 0 || opponentCard.health <= 0) {
-            gameActive = false;
-            const winner = selectedCard.health > 0 ? 'You' : 'Opponent';
-            updateBattleLog(`Game Over! ${winner} won!`);
-            document.getElementById('attack-button').disabled = true;
-        }
-    }
-
-    function updateBattleLog(message) {
-        const battleLog = document.getElementById('battle-log');
-        battleLog.innerHTML += `<div>${message}</div>`;
-        battleLog.scrollTop = battleLog.scrollHeight;
-    }
-
     function displayBattleCard(card, side) {
         const cardDiv = document.querySelector(`.${side}-card`);
         cardDiv.innerHTML = `
@@ -158,5 +141,20 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
         document.querySelector(`.${side}-stats`).textContent = `HP: ${card.health}`;
+    }
+
+    function updateBattleLog(message) {
+        const battleLog = document.getElementById('battle-log');
+        battleLog.innerHTML += `<div>${message}</div>`;
+        battleLog.scrollTop = battleLog.scrollHeight;
+    }
+
+    function checkGameEnd() {
+        if (selectedCard.health <= 0 || opponentCard.health <= 0) {
+            gameActive = false;
+            const winner = selectedCard.health > 0 ? 'You' : 'Opponent';
+            updateBattleLog(`Game Over! ${winner} won!`);
+            document.getElementById('attack-button').disabled = true;
+        }
     }
 });
