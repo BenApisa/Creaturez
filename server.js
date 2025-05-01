@@ -15,6 +15,10 @@ app.get('/creatures', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/pages/creatures.html'));
 });
 
+app.get('/battle', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/pages/battle.html'));
+});
+
 // Handle all other routes
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/pages/index.html'));

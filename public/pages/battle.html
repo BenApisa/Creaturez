@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creaturez TCG - Battle</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body class="battle-page light-mode">
+    <header>
+        <div class="logo-container">
+            <img src="../assets/images/logo.png" alt="Creaturez TCG Logo" class="logo">
+        </div>
+        <button id="mode-toggle" class="mode-toggle" aria-label="Toggle dark mode"></button>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/creatures">Creaturez</a></li>
+            <li><a href="/battle" class="active">Battle</a></li>
+        </ul>
+    </nav>
+
+    <main class="battle-container">
+        <div class="card-selection">
+            <h2>Select Your Card</h2>
+            <div class="player-cards">
+                <!-- Cards will be loaded here -->
+            </div>
+            <button id="start-battle" class="battle-button" disabled>Start Battle</button>
+        </div>
+
+        <div class="battle-arena" style="display: none;">
+            <div class="player-side">
+                <div class="player-card"></div>
+                <div class="player-stats"></div>
+            </div>
+
+            <div class="battle-controls">
+                <div id="coin-flip"></div>
+                <div id="battle-log"></div>
+                <button id="attack-button" class="battle-button">Attack</button>
+            </div>
+
+            <div class="opponent-side">
+                <div class="opponent-card"></div>
+                <div class="opponent-stats"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/battle.js"></script>
+    <script src="/js/scripts.js"></script>
+</body>
+</html>
