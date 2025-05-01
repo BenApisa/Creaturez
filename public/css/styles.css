@@ -670,7 +670,7 @@ body.home.dark-mode {
 }
 
 #battle-log {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.15);
     padding: 20px;
     border-radius: 10px;
     min-height: 200px;
@@ -679,19 +679,22 @@ body.home.dark-mode {
     font-family: 'Press Start 2P', cursive;
     font-size: 0.8em;
     line-height: 1.5;
-    color: var(--button-text-color);
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
     border: 1px solid rgba(126, 87, 194, 0.3);
     margin-top: 20px;
+    overflow-y: auto;
 }
 
 .stats-display {
-    background: linear-gradient(135deg, rgba(126, 87, 194, 0.2), rgba(33, 150, 243, 0.2));
+    background: rgba(255, 255, 255, 0.15);
     padding: 10px 20px;
     border-radius: 10px;
     margin-top: 15px;
     font-family: 'Press Start 2P', cursive;
     font-size: 0.9em;
-    color: var(--button-text-color);
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
     box-shadow: 0 0 10px rgba(126, 87, 194, 0.3);
 }
 
@@ -704,4 +707,77 @@ body.home.dark-mode {
 @keyframes flip {
     0% { transform: rotateX(0); }
     100% { transform: rotateX(1800deg); }
+}
+
+/* Card Selection Styles */
+.card-selection {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.card-selection h2 {
+    color: #fff;
+    font-size: 2em;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(126, 87, 194, 0.8);
+    font-family: 'Press Start 2P', cursive;
+}
+
+.player-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.player-cards .card {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 3px solid transparent;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.player-cards .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(126, 87, 194, 0.5);
+}
+
+.player-cards .card.selected {
+    border-color: #7e57c2;
+    box-shadow: 0 0 30px rgba(126, 87, 194, 0.8);
+}
+
+.battle-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.battle-button {
+    padding: 15px 30px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9em;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--button-background);
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.battle-button:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(126, 87, 194, 0.6);
+}
+
+.battle-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }

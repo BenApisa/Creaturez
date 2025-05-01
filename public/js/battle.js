@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let opponentCard = null;
     let currentTurn = null;
     let gameActive = false;
+    let isDefending = false;
 
     // Initialize card selection
     cards.forEach(card => {
@@ -53,9 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function selectCard(card) {
         selectedCard = { ...card };
         document.getElementById('start-battle').disabled = false;
-        document.querySelectorAll('.card').forEach(c => 
-            c.style.border = c.querySelector('img').src === card.image ? '3px solid #7e57c2' : 'none'
-        );
+        document.querySelectorAll('.card').forEach(c => {
+            if (c.querySelector('img').src === card.image) {
+                c.classList.add('selected');
+            } else {
+                c.classList.remove('selected');
+            }
+        });
     }
 
     // Battle initialization
@@ -101,6 +106,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    document.getElementById('defense-button').addEventListener('click', () => {
+        if (gameActive && currentTurn === 'player') {
+            playerDefend();
+        }
+    });
+
     function playerTurn() {
         const damage = calculateDamage(selectedCard.attack, opponentCard.defense);
         opponentCard.health -= damage;
@@ -113,8 +124,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function playerDefend() {
+        isDefending = true;
+        updateBattleLog('You take a defensive stance!');
+        currentTurn = 'opponent';
+        setTimeout(opponentTurn, 1500);
+    }
+
     function opponentTurn() {
-        const damage = calculateDamage(opponentCard.attack, selectedCard.defense);
+        let damage = calculateDamage(opponentCard.attack, selectedCard.defense);
+        if (isDefending) {
+            damage = Math.floor(damage * 0.5); // Reduce damage by 50% when defending
+            isDefending = false; // Reset defense status
+        }
         selectedCard.health -= damage;
         updateBattleLog(`Opponent dealt ${damage} damage!`);
         updateStats();
@@ -157,7 +179,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateBattleLog(message) {
         const battleLog = document.getElementById('battle-log');
-        battleLog.innerHTML += `<div>${message}</div>`;
+        const logEntry = document.createElement('div');
+        logEntry.textContent = message;
+        logEntry.style.marginBottom = '5px';
+        battleLog.appendChild(logEntry);
         battleLog.scrollTop = battleLog.scrollHeight;
     }
 
