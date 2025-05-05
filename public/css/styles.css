@@ -364,9 +364,10 @@ body.home.dark-mode {
     line-height: 1.4;
 }
 
-/* Add after your existing card styles */
+/* Add shared shiny card styles */
 .card[data-card="card3"],
-.carousel-card[data-card="card3"] {
+.carousel-card[data-card="card3"],
+.battle-arena .card[data-rarity="shiny"] {
     background: linear-gradient(
         45deg,
         rgba(126, 87, 194, 0.3),
@@ -378,8 +379,10 @@ body.home.dark-mode {
     background-clip: padding-box;
 }
 
+/* Shared before element for border effect */
 .card[data-card="card3"]::before,
-.carousel-card[data-card="card3"]::before {
+.carousel-card[data-card="card3"]::before,
+.battle-arena .card[data-rarity="shiny"]::before {
     content: '';
     position: absolute;
     top: 0;
@@ -403,8 +406,10 @@ body.home.dark-mode {
     animation: borderRotate 4s linear infinite;
 }
 
+/* Shared after element for shimmer effect */
 .card[data-card="card3"]::after,
-.carousel-card[data-card="card3"]::after {
+.carousel-card[data-card="card3"]::after,
+.battle-arena .card[data-rarity="shiny"]::after {
     content: '';
     position: absolute;
     top: 0;
@@ -422,8 +427,10 @@ body.home.dark-mode {
     pointer-events: none;
 }
 
+/* Shared card info styles for shiny cards */
 .card[data-card="card3"] .card-info,
-.carousel-card[data-card="card3"] .card-info {
+.carousel-card[data-card="card3"] .card-info,
+.battle-arena .card[data-rarity="shiny"] .card-info {
     background: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
     padding: 15px;
@@ -431,28 +438,12 @@ body.home.dark-mode {
     z-index: 1;
 }
 
+/* Shared heading styles for shiny cards */
 .card[data-card="card3"] h3,
-.carousel-card[data-card="card3"] h3 {
+.carousel-card[data-card="card3"] h3,
+.battle-arena .card[data-rarity="shiny"] h3 {
     color: #ffd700;
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-}
-
-@keyframes borderRotate {
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes shimmer {
-    0% {
-        opacity: 0.5;
-    }
-    50% {
-        opacity: 0.8;
-    }
-    100% {
-        opacity: 0.5;
-    }
 }
 
 /* Add hover effect enhancement */

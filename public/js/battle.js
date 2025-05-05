@@ -171,8 +171,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function displayBattleCard(card, side) {
         const cardDiv = document.querySelector(`.${side}-card`);
+        const isShiny = card.id === 3; // Shadow Walker is card 3
+
         cardDiv.innerHTML = `
-            <div class="card">
+            <div class="card ${isShiny ? 'data-rarity="shiny"' : ''}">
                 <div class="card-image">
                     <img src="${card.image}" alt="${card.name}">
                 </div>
