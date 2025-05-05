@@ -1,0 +1,49 @@
+acks.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creaturez TCG - Pack Opening</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body class="packs-page light-mode">
+    <header>
+        <div class="logo-container">
+            <img src="../assets/images/logo.png" alt="Creaturez TCG Logo" class="logo">
+        </div>
+        <button id="mode-toggle" class="mode-toggle" aria-label="Toggle dark mode"></button>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/creatures">Creaturez</a></li>
+            <li><a href="/packs" class="active">Packs</a></li>
+            <li><a href="/battle">Battle</a></li>
+        </ul>
+    </nav>
+
+    <main class="packs-container">
+        <h1>Open Creaturez Packs</h1>
+        <div class="pack-selection">
+            <div class="pack" data-pack="standard">
+                <img src="../assets/images/pack-standard.jpg" alt="Standard Pack">
+                <h2>Standard Pack</h2>
+                <p>Contains 5 random cards</p>
+                <button class="pack-button">Open Pack</button>
+            </div>
+        </div>
+        
+        <div class="pack-opening-area" style="display: none;">
+            <div class="cards-reveal">
+                <!-- Cards will appear here when pack is opened -->
+            </div>
+            <button class="close-reveal-button" style="display: none;">Continue</button>
+        </div>
+    </main>
+
+    <script src="/js/scripts.js"></script>
+    <script src="/js/packs.js"></script>
+</body>
+</html>
