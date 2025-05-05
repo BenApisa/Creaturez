@@ -17,6 +17,15 @@ document.addEventListener('DOMContentLoaded', () => {
             attack: 1200,
             defense: 900,
             health: 2200
+        },
+        {
+            id: 3,
+            name: "Shadow Walker",
+            image: "/assets/images/cards/card3.jpg",
+            type: "Ghost",
+            attack: 1500,
+            defense: 600,
+            health: 1800
         }
     ];
 

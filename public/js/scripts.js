@@ -60,7 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Updated card data to match existing files
     const cards = [
         { image: '/assets/images/cards/card1.png', name: 'Creature 1' },
-        { image: '/assets/images/cards/card2.jpg', name: 'Creature 2' }
+        { image: '/assets/images/cards/card2.jpg', name: 'Creature 2' },
+        { image: '/assets/images/cards/card3.jpg', name: 'Shadow Walker' }
     ];
     
     // Add cards to carousel
