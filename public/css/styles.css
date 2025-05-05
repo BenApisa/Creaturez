@@ -364,6 +364,107 @@ body.home.dark-mode {
     line-height: 1.4;
 }
 
+/* Add after your existing card styles */
+.card[data-card="card3"],
+.carousel-card[data-card="card3"] {
+    background: linear-gradient(
+        45deg,
+        rgba(126, 87, 194, 0.3),
+        rgba(33, 150, 243, 0.3)
+    );
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.card[data-card="card3"]::before,
+.carousel-card[data-card="card3"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    border: 2px solid transparent;
+    background: linear-gradient(
+        135deg,
+        #ffd700,
+        #7e57c2,
+        #2196f3,
+        #ffd700
+    ) border-box;
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    animation: borderRotate 4s linear infinite;
+}
+
+.card[data-card="card3"]::after,
+.carousel-card[data-card="card3"]::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        45deg,
+        rgba(255, 215, 0, 0.2),
+        rgba(126, 87, 194, 0.2),
+        rgba(33, 150, 243, 0.2)
+    );
+    animation: shimmer 2s infinite;
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+.card[data-card="card3"] .card-info,
+.carousel-card[data-card="card3"] .card-info {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.card[data-card="card3"] h3,
+.carousel-card[data-card="card3"] h3 {
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+@keyframes borderRotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+/* Add hover effect enhancement */
+.card[data-card="card3"]:hover,
+.carousel-card[data-card="card3"]:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 
+        0 0 30px rgba(255, 215, 0, 0.3),
+        0 0 50px rgba(126, 87, 194, 0.3),
+        0 0 70px rgba(33, 150, 243, 0.3);
+}
+
 /* Card Details Page Styles */
 .card-details-page {
     background: var(--home-background);
