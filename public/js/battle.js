@@ -76,6 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('start-battle').addEventListener('click', startBattle);
 
     function startBattle() {
+        // Add battle-mode class to body
+        document.body.classList.add('battle-mode');
+
         opponentCard = { ...cards[Math.floor(Math.random() * cards.length)] };
         if (opponentCard.id === selectedCard.id) {
             opponentCard = { ...cards[(opponentCard.id % cards.length) + 1] };
@@ -201,6 +204,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const winner = selectedCard.health > 0 ? 'You' : 'Opponent';
             updateBattleLog(`Game Over! ${winner} won!`);
             document.getElementById('attack-button').disabled = true;
+            document.getElementById('defense-button').disabled = true;
+            
+            // Remove battle-mode class when game ends
+            setTimeout(() => {
+                document.body.classList.remove('battle-mode');
+            }, 2000);
         }
     }
 });

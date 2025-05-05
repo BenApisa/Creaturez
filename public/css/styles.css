@@ -674,7 +674,7 @@ body.home.dark-mode {
     padding: 20px;
     border-radius: 15px;
     min-height: 250px;
-    max-height: 300px;
+    max-height: 250px;
     width: 100%;
     font-family: 'Press Start 2P', cursive;
     font-size: 1em;
@@ -694,6 +694,19 @@ body.home.dark-mode {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     animation: fadeIn 0.3s ease-out;
+    transition: opacity 0.3s ease;
+}
+
+#battle-log div:nth-last-child(n+7) {
+    opacity: 0.3;
+}
+
+#battle-log div:nth-last-child(n+5) {
+    opacity: 0.6;
+}
+
+#battle-log div:nth-last-child(n+3) {
+    opacity: 0.8;
 }
 
 #battle-log div:last-child {
@@ -828,4 +841,28 @@ body.home.dark-mode {
 .battle-button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+/* Add a class for the minimized header state */
+.battle-mode header {
+    height: 35px;
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+
+.battle-mode .logo {
+    transform: scale(0.8);
+    margin-top: -42px;
+    transition: all 0.3s ease;
+}
+
+.battle-mode nav {
+    top: 35px;
+    padding: 4px 0;
+    transition: all 0.3s ease;
+}
+
+.battle-mode nav ul li a {
+    font-size: 1em;
+    padding: 3px 12px;
 }
